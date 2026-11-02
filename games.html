@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Browse the Game Zone library and filter games by genre.">
+  <title>Explore Games | Game Zone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+<body data-page="games">
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top site-nav">
+    <div class="container">
+      <a class="navbar-brand brand-mark" href="index.html"><span class="brand-icon">G</span> GAME<span>ZONE</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="games.html">Explore Games</a></li>
+          <li class="nav-item"><a class="nav-link" href="register.html">Join an Event</a></li>
+          <li class="nav-item ms-lg-2"><a class="btn btn-primary btn-sm px-3" href="register.html">Join the community ↗</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">THE GAME LIBRARY</p>
+        <h1>Choose your <span class="gradient-text">next world.</span></h1>
+        <p class="section-copy max-copy">Filter the collection by genre, search by title, and open a game card to learn more.</p>
+      </div>
+    </section>
+    <section class="section-pad pt-2">
+      <div class="container">
+        <div class="library-toolbar">
+          <div class="search-wrap"><label class="visually-hidden" for="gameSearch">Search games</label><span aria-hidden="true">⌕</span><input id="gameSearch" class="form-control" type="search" placeholder="Search games by name..." autocomplete="off"></div>
+          <div class="filter-group" role="group" aria-label="Filter games by genre">
+            <button class="btn filter-btn active" type="button" data-genre="All" aria-pressed="true">All games</button>
+            <button class="btn filter-btn" type="button" data-genre="RPG" aria-pressed="false">RPG</button>
+            <button class="btn filter-btn" type="button" data-genre="Action" aria-pressed="false">Action</button>
+            <button class="btn filter-btn" type="button" data-genre="Adventure" aria-pressed="false">Adventure</button>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between align-items-center mt-4 mb-2"><p class="result-label mb-0" id="resultsCount" aria-live="polite">Loading games...</p><span class="small muted-text">DEMO LIBRARY</span></div>
+        <div class="row g-4" id="gamesGrid" aria-live="polite"></div>
+        <div id="emptyState" class="empty-state d-none"><div class="empty-icon">⌕</div><h2>No games found</h2><p>Try another title or select a different genre.</p><button class="btn btn-outline-light" id="resetFilters" type="button">Reset filters</button></div>
+      </div>
+    </section>
+
+    <section class="section-pad section-muted">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">QUICK QUESTIONS</p><h2>Player <span class="gradient-text">help desk</span></h2><p class="section-copy">A few details about this demo library.</p></div>
+        <div class="accordion game-accordion mt-4" id="helpAccordion">
+          <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#helpOne" aria-expanded="true" aria-controls="helpOne">Are these games available to play on this website?</button></h3><div id="helpOne" class="accordion-collapse collapse show" data-bs-parent="#helpAccordion"><div class="accordion-body">No. Game Zone is a discovery website prototype. The cards provide sample information and do not launch or sell games.</div></div></div>
+          <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#helpTwo" aria-expanded="false" aria-controls="helpTwo">How do I find a specific genre?</button></h3><div id="helpTwo" class="accordion-collapse collapse" data-bs-parent="#helpAccordion"><div class="accordion-body">Choose a genre filter above the cards, or type part of a game title into the search field. You can combine search and genre filters.</div></div></div>
+          <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#helpThree" aria-expanded="false" aria-controls="helpThree">Can I register for a gaming event?</button></h3><div id="helpThree" class="accordion-collapse collapse" data-bs-parent="#helpAccordion"><div class="accordion-body">Yes, you can test the registration form on the Join an Event page. This front-end demo displays a confirmation but does not send information to a server.</div></div></div>
+        </div>
+        <p class="small muted-text mt-3 mb-0">jQuery interaction: select any question below to expand or collapse it.</p>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal fade" id="gameDetailsModal" tabindex="-1" aria-labelledby="gameDetailsTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered"><div class="modal-content game-modal">
+      <div class="modal-header"><div><p class="eyebrow mb-1">GAME DETAILS</p><h2 class="modal-title fs-4" id="gameDetailsTitle">Game title</h2></div><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button></div>
+      <div class="modal-body"><div class="modal-art" id="modalArt" aria-hidden="true">GZ</div><div class="d-flex flex-wrap gap-2 mb-3" id="modalMeta"></div><p id="modalDescription" class="section-copy"></p><p class="small muted-text mb-0" id="modalPlayers"></p></div>
+      <div class="modal-footer"><button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Keep exploring</button><a href="register.html" class="btn btn-primary">Join an event →</a></div>
+    </div></div>
+  </div>
+
+  <footer class="site-footer"><div class="container d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-2"><a class="navbar-brand brand-mark" href="index.html"><span class="brand-icon">G</span> GAME<span>ZONE</span></a><p class="mb-0">A student project made for players. <span id="footerYear"></span></p><a href="register.html" class="footer-link">Join an event →</a></div></footer>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

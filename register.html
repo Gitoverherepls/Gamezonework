@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Send a demo registration request for a Game Zone community event.">
+  <title>Join an Event | Game Zone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+<body data-page="register">
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top site-nav">
+    <div class="container">
+      <a class="navbar-brand brand-mark" href="index.html"><span class="brand-icon">G</span> GAME<span>ZONE</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="games.html">Explore Games</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="register.html">Join an Event</a></li>
+          <li class="nav-item ms-lg-2"><a class="btn btn-primary btn-sm px-3" href="games.html">Browse games ↗</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">SQUAD UP</p>
+        <h1>Join the <span class="gradient-text">next match.</span></h1>
+        <p class="section-copy max-copy">Tell us a little about yourself and choose a community event. This demo form checks your details and shows a local confirmation.</p>
+      </div>
+    </section>
+    <section class="section-pad pt-2">
+      <div class="container">
+        <div class="row g-5 align-items-start">
+          <div class="col-lg-7">
+            <div class="form-panel">
+              <div class="panel-heading"><div><p class="eyebrow">PLAYER REGISTRATION</p><h2>Save your spot</h2></div><span class="step-chip">01 / 01</span></div>
+              <div id="formAlert" class="alert d-none" role="alert" aria-live="polite"></div>
+              <form id="registrationForm" novalidate>
+                <div class="row g-3">
+                  <div class="col-md-6"><label for="playerName" class="form-label">Player name <span class="required-star">*</span></label><input class="form-control" id="playerName" name="playerName" type="text" placeholder="Your name" minlength="2" maxlength="50" required><div class="invalid-feedback">Enter a name with at least 2 characters.</div></div>
+                  <div class="col-md-6"><label for="playerEmail" class="form-label">Email address <span class="required-star">*</span></label><input class="form-control" id="playerEmail" name="playerEmail" type="email" placeholder="you@example.com" required><div class="invalid-feedback">Enter a valid email address.</div></div>
+                  <div class="col-md-6"><label for="favoriteGame" class="form-label">Favorite game <span class="required-star">*</span></label><select class="form-select" id="favoriteGame" name="favoriteGame" required><option value="">Choose a game</option><option>Stardew Valley</option><option>Elden Ring</option><option>Minecraft</option><option>Fortnite</option><option>Hades</option><option>The Legend of Zelda: Breath of the Wild</option><option>Rocket League</option><option>Hollow Knight</option><option>Cyberpunk 2077</option></select><div class="invalid-feedback">Choose a game from the list.</div></div>
+                  <div class="col-md-6"><label for="eventChoice" class="form-label">Event <span class="required-star">*</span></label><select class="form-select" id="eventChoice" name="eventChoice" required><option value="">Choose an event</option><option value="Community Game Night">Community Game Night</option><option value="RPG Roundtable">RPG Roundtable</option><option value="Casual Competition">Casual Competition</option></select><div class="invalid-feedback">Choose an event.</div></div>
+                  <div class="col-12"><label for="experienceLevel" class="form-label">Player experience</label><select class="form-select" id="experienceLevel" name="experienceLevel"><option>Just starting out</option><option>Casual player</option><option>Experienced player</option></select></div>
+                  <div class="col-12"><label for="playerMessage" class="form-label">Anything else? <span class="muted-text">(optional)</span></label><textarea class="form-control" id="playerMessage" name="playerMessage" rows="3" maxlength="300" placeholder="Tell us what you are looking forward to..."></textarea><div class="form-text">Maximum 300 characters.</div></div>
+                  <div class="col-12"><div class="form-check"><input class="form-check-input" type="checkbox" id="agreeTerms" required><label class="form-check-label" for="agreeTerms">I understand this is a class demo and my information will not be sent to a server. <span class="required-star">*</span></label><div class="invalid-feedback">Please confirm before submitting.</div></div></div>
+                  <div class="col-12 d-flex flex-wrap align-items-center gap-3 mt-4"><button class="btn btn-primary btn-lg" type="submit">Submit registration <span aria-hidden="true">→</span></button><button class="btn btn-outline-light" type="reset" id="resetForm">Clear form</button></div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <aside class="event-aside">
+              <p class="eyebrow">UPCOMING COMMUNITY EVENTS</p><h2>Pick your <span class="gradient-text">vibe.</span></h2>
+              <article class="event-card"><div class="event-date"><span>FRI</span><strong>01</strong><span>NOV</span></div><div><span class="event-tag">SOCIAL</span><h3>Community Game Night</h3><p>Meet other players and share what you are playing.</p></div></article>
+              <article class="event-card"><div class="event-date"><span>SAT</span><strong>08</strong><span>NOV</span></div><div><span class="event-tag">DISCUSSION</span><h3>RPG Roundtable</h3><p>Talk builds, quests, stories, and favorite role-playing games.</p></div></article>
+              <article class="event-card"><div class="event-date"><span>SUN</span><strong>16</strong><span>NOV</span></div><div><span class="event-tag">CASUAL</span><h3>Casual Competition</h3><p>A friendly community challenge for players of all levels.</p></div></article>
+              <div class="notice-card"><span class="notice-icon">ⓘ</span><p><strong>Demo note</strong><br>These are sample events for the assignment, not real bookings. The form does not store or transmit your details.</p></div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="successToast" class="toast game-toast" role="status" aria-live="polite" aria-atomic="true">
+      <div class="toast-header"><span class="toast-symbol me-2">✓</span><strong class="me-auto">Registration received</strong><small>Game Zone</small><button type="button" class="btn-close btn-close-white ms-2" data-bs-dismiss="toast" aria-label="Close"></button></div>
+      <div class="toast-body" id="toastMessage">Thanks for registering!</div>
+    </div>
+  </div>
+
+  <footer class="site-footer"><div class="container d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-2"><a class="navbar-brand brand-mark" href="index.html"><span class="brand-icon">G</span> GAME<span>ZONE</span></a><p class="mb-0">A student project made for players. <span id="footerYear"></span></p><a href="games.html" class="footer-link">Explore games →</a></div></footer>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
